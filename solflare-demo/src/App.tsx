@@ -1,4 +1,4 @@
-import { WalletProvider } from "./context/WalletContext";
+import { WalletProvider } from "./provider/WalletProvider";
 import WalletConnect from "./components/WalletConnect";
 
 function App() {

@@ -1,4 +1,4 @@
-import { useWallet } from "../context/WalletContext";
+import { useWallet } from "../context/wallsContext";
 
 const WalletConnect = () => {
   const { walletAddress, balance, connectWallet } = useWallet();

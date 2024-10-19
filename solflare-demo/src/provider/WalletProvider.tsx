@@ -1,20 +1,8 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+// src/providers/WalletProvider.tsx
+import { useState, ReactNode } from "react";
 import { Connection, PublicKey } from "@solana/web3.js";
 import Solflare from "@solflare-wallet/sdk";
-
-// Define types for the wallet context
-interface WalletContextType {
-  walletAddress: string | null;
-  balance: number | null;
-  connectWallet: () => Promise<void>;
-}
-
-// Create the context with an empty default value
-const WalletContext = createContext<WalletContextType>({
-  walletAddress: null,
-  balance: null,
-  connectWallet: async () => {},
-});
+import { WalletContext } from "../context/wallsContext";
 
 export const WalletProvider = ({ children }: { children: ReactNode }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
@@ -45,6 +33,3 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
     </WalletContext.Provider>
   );
 };
-
-// Custom hook for using wallet context
-export const useWallet = () => useContext(WalletContext);
